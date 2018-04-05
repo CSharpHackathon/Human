@@ -32,7 +32,7 @@ namespace human
             this.health = health;
         }
 
-        public void Attack(Human enemy)
+        public void Attack(Monster enemy)
         {
             this.health -= 1;
             enemy.health -= (this.strength * 5);
