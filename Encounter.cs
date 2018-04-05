@@ -56,7 +56,7 @@ namespace human
                     break;
                 }
                 int myturn = turncount % totallength;
-                Console.WriteLine(myturn);
+                //Console.WriteLine(myturn);
                 if (turns[myturn] is Monster)
                 {
                     Monster currenemy = turns[myturn] as Monster;
