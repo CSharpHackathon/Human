@@ -8,7 +8,7 @@ namespace human
         }
 
         public void Steal(object enemy){
-            Attack2(enemy);
+            Attack(enemy);
             this.health += 10;
             System.Console.WriteLine("{0} gained 10 health, going up to {1}!",this.name,this.health);
         }

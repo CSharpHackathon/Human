@@ -28,10 +28,10 @@ namespace human
             this.health = health;
         }
         
-        public void Attack(Human player){
+        public virtual void Attack(Human player){
             this.health -= 1;
             player.health = player.health - (strength * intelligence);
-            System.Console.WriteLine("{this.name} attacked {player}. {(strength * intelligence)} damages made. Current health: {player.health}");
+            System.Console.WriteLine($"{this.name} attacked {player}. {(strength * intelligence)} damages made. Current health: {player.health}");
         }
     }
 

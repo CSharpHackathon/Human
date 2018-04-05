@@ -32,28 +32,34 @@ namespace human
             this.health = health;
         }
 
-        public void Attack(Monster enemy)
+        public void Attack(object enemy)
         {
-            this.health -= 1;
-            enemy.health -= (this.strength * 5);
-            if(this.poisoned > 0){
-                this.health -= (enemy.intelligence * enemy.strength);
-                this.poisoned --;
+            if(enemy is Human){
+                Human myenemy = enemy as Human;
+                myenemy.health -= (this.strength * 5);
+                Console.WriteLine("{0} lost {1} hp! {2} remaining.",myenemy.name,5*this.strength,myenemy.health);
             }
+            else{
+                Monster myenemy = enemy as Monster;
+                myenemy.health -= (this.strength * 5);
+                Console.WriteLine("{0} lost {1} hp! {2} remaining.",myenemy.name,5*this.strength,myenemy.health);
+            }
+            
+          
         }
 
         //boxing unboxing
-        public void Attack2(object p1)
-        {
-            Human enemy = p1 as Human;
-            if(enemy == null){
-                System.Console.WriteLine("Failed Attack");
-            }
-            else{
-                enemy.health -= strength*5;
-                System.Console.WriteLine("Attaced the enemy, enemy's health decresed by "+  strength*5 + " Current enemy's health "+ enemy.health);
-            }
-        }
+        // public void Attack2(object p1)
+        // {
+        //     Human enemy = p1 as Human;
+        //     if(enemy == null){
+        //         System.Console.WriteLine("Failed Attack");
+        //     }
+        //     else{
+        //         enemy.health -= strength*5;
+        //         System.Console.WriteLine("Attaced the enemy, enemy's health decresed by "+  strength*5 + " Current enemy's health "+ enemy.health);
+        //     }
+        // }
 
         
 

@@ -4,18 +4,15 @@ namespace human
 {
     public class Spider: Monster
     {
-        public int poisonDuration = 0;
-        public Spider(string name){
+        public Spider(string name):base(name){
             this.name = name;
             this.strength = 4;
             this.intelligence = 4;
         }
 
-        public void PoisonAttack(Human player){
-            this.health -= 1;
+        public override void Attack(Human player){
             player.health = player.health - (strength * intelligence);
-            System.Console.WriteLine("{this.name} attacked {player}. {(strength * intelligence)} damages made. Current health: {player.health}");
-            poisonDuration--;
+            System.Console.WriteLine($"{player.name} lost {(strength * intelligence)} health and was poisoned! {player.health} hp remaining.");
             player.poisoned += 3;
         }
     }
